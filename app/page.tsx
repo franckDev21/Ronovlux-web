@@ -43,7 +43,7 @@ export default function HomePage() {
     },
     {
       title: "Revêtements Premium",
-      description: "Installation experte de revêtements d'escaliers, sols et murs avec les matériaux les plus nobles",
+      description: "Installation experte de revêtements d&apos;escaliers, sols et murs avec les matériaux les plus nobles",
       image: "https://images.pexels.com/photos/6585593/pexels-photo-6585593.jpeg",
       features: ["Escaliers en pierre", "Sols en marbre", "Murs décoratifs", "Finitions luxueuses"]
     },
@@ -57,7 +57,7 @@ export default function HomePage() {
       title: "Salles de Bains Luxe",
       description: "Création de salles de bains modernes et spa avec les meilleurs matériaux et équipements",
       image: "https://images.pexels.com/photos/6585751/pexels-photo-6585751.jpeg",
-      features: ["Douche italienne", "Baignoires design", "Robinetterie premium", "Éclairage d'ambiance"]
+      features: ["Douche italienne", "Baignoires design", "Robinetterie premium", "Éclairage d&apos;ambiance"]
     }
   ];
 
@@ -118,7 +118,7 @@ export default function HomePage() {
       </nav>
 
       {/* Hero Section */}
-      <section id="accueil" className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section id="accueil" className="relative pb-30 pt-40 flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -136,7 +136,7 @@ export default function HomePage() {
             Ronovlux Group
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200 font-light leading-relaxed">
-            Votre partenaire d'exception pour la transformation de vos espaces<br />
+            Votre partenaire d&apos;exception pour la transformation de vos espaces<br />
             <span className="text-amber-300">Granit • Marbre • Quartz • Cuisines • Salles de Bains</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -145,7 +145,7 @@ export default function HomePage() {
               Demander un Devis Gratuit
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-medium backdrop-blur-sm">
+            <Button size="lg" variant="outline" className="border-2 border-white text-amber-700 hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-medium backdrop-blur-sm">
               <Phone className="mr-2 h-5 w-5" />
               Nous Appeler
             </Button>
@@ -166,12 +166,12 @@ export default function HomePage() {
                 <Badge variant="outline" className="border-amber-600 text-amber-700">À Propos</Badge>
               </div>
               <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                L'Excellence au Service de Votre Habitat
+                L&apos;Excellence au Service de Votre Habitat
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Depuis notre création, <strong>Ronovlux Group Sarl</strong> s'est imposée comme la référence 
+                Depuis notre création, <strong>Ronovlux Group Sarl</strong> s&apos;est imposée comme la référence 
                 en matière de rénovation haut de gamme. Nous combinons savoir-faire traditionnel et 
-                technologies modernes pour créer des espaces d'exception qui reflètent votre style de vie.
+                technologies modernes pour créer des espaces d&apos;exception qui reflètent votre style de vie.
               </p>
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
@@ -180,7 +180,7 @@ export default function HomePage() {
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <div className="text-3xl font-bold text-amber-600 mb-2">15+</div>
-                  <div className="text-sm text-gray-600">Années d'Expérience</div>
+                  <div className="text-sm text-gray-600">Années d&apos;Expérience</div>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -212,7 +212,7 @@ export default function HomePage() {
               <Badge variant="outline" className="border-amber-600 text-amber-700">Nos Services</Badge>
             </div>
             <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Des Services d'Exception
+              Des Services d&apos;Exception
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Découvrez notre gamme complète de services premium pour transformer vos espaces
@@ -310,7 +310,7 @@ export default function HomePage() {
               Démarrons Votre Projet
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Contactez-nous dès aujourd'hui pour un devis gratuit et personnalisé
+              Contactez-nous dès aujourd&apos;hui pour un devis gratuit et personnalisé
             </p>
           </div>
 
@@ -406,7 +406,7 @@ export default function HomePage() {
                 <span className="text-xl font-bold">Ronovlux Group</span>
               </div>
               <p className="text-gray-400 leading-relaxed">
-                Votre partenaire d'exception pour la transformation de vos espaces avec les matériaux les plus nobles.
+                Votre partenaire d&apos;exception pour la transformation de vos espaces avec les matériaux les plus nobles.
               </p>
             </div>
             <div>
