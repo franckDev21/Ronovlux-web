@@ -8,7 +8,7 @@ import { useFeaturedPortfolio } from '@/hooks/usePortfolio';
 import { LoadingState } from '@/components/loading/LoadingState';
 import { ErrorState } from '@/components/error/ErrorState';
 import { formatPortfolioForDisplay } from '@/lib/api/services';
-
+import Image from 'next/image';
 interface PortfolioSectionProps {
   className?: string;
   limit?: number;
@@ -57,7 +57,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
           
           return (
             <div key={project.id} className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
-              <img 
+              <Image 
                 src={displayProject.image} 
                 alt={displayProject.title}
                 className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"

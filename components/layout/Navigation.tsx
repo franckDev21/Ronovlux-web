@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Crown } from 'lucide-react';
+import { Crown, GraduationCap } from 'lucide-react';
 
 interface NavigationProps {
   className?: string;
@@ -67,12 +67,21 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
             >
               Contact
             </button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-amber-600 hover:bg-amber-700 text-white px-6"
-            >
-              Devis Gratuit
-            </Button>
+            <div className="flex items-center space-x-2">
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                className="bg-amber-600 hover:bg-amber-700 text-white px-6"
+              >
+                Devis Gratuit
+              </Button>
+              <Button
+                onClick={() => scrollToSection('services')}
+                className="bg-gray-900 hover:bg-gray-800 text-white px-6 flex items-center gap-2"
+              >
+                <GraduationCap className="h-4 w-4" />
+                Postuler pour une formation
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
