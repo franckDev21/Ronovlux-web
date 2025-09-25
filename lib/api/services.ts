@@ -1,5 +1,17 @@
 import { apiClient } from './client';
+
+// Base URL de l'API (configurée via l'environnement)
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
 import { Service, PortfolioItem, Product, ContactFormData, ApiResponse, FilterOptions, PaginationOptions } from '@/types';
+// Format brut renvoyé par l'API /projects
+type RawProject = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  created_at: string;
+  category: string;
+};
 
 // Service pour les services
 export class ServicesApi {
@@ -28,19 +40,10 @@ export class ServicesApi {
 
 // Service pour le portfolio
 export class PortfolioApi {
-  private endpoint = '/portfolio';
+  private endpoint = '/projects';
 
-  async getAll(options?: FilterOptions & PaginationOptions): Promise<{
-    items: PortfolioItem[];
-    pagination: {
-      page: number;
-      limit: number;
-      total: number;
-      totalPages: number;
-    };
-  }> {
+  async getAll(options?: FilterOptions & PaginationOptions): Promise<PortfolioItem[]> {
     const params: Record<string, string> = {};
-    
     if (options?.category) params.category = options.category;
     if (options?.search) params.search = options.search;
     if (options?.sortBy) params.sortBy = options.sortBy;
@@ -48,17 +51,23 @@ export class PortfolioApi {
     if (options?.page) params.page = options.page.toString();
     if (options?.limit) params.limit = options.limit.toString();
 
-    const response = await apiClient.get<{
-      items: PortfolioItem[];
-      pagination: {
-        page: number;
-        limit: number;
-        total: number;
-        totalPages: number;
-      };
-    }>(this.endpoint, params);
-    
-    return response.data;
+    const response = await apiClient.get<RawProject[]>(this.endpoint, params);
+    const raw = response.data;
+    // Mapper RawProject -> PortfolioItem attendu par le front
+    const mapped: PortfolioItem[] = (raw || []).map((p) => ({
+      id: p.id,
+      title: p.title,
+      category: p.category,
+      image: p.image,
+      description: p.description,
+      images: [p.image].filter(Boolean),
+      tags: [],
+      client: undefined,
+      year: parseInt((p.created_at || '').slice(-4)) || new Date().getFullYear(),
+      createdAt: p.created_at,
+      updatedAt: p.created_at,
+    }));
+    return mapped;
   }
 
   async getById(id: string): Promise<PortfolioItem> {
@@ -72,7 +81,7 @@ export class PortfolioApi {
   }
 
   async getFeatured(limit: number = 6): Promise<PortfolioItem[]> {
-    const response = await apiClient.get<PortfolioItem[]>(`${this.endpoint}/featured`, { limit: limit.toString() });
+    const response = await apiClient.get<PortfolioItem[]>(`${this.endpoint}`, { limit: limit.toString() });
     return response.data;
   }
 }

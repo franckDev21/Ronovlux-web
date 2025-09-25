@@ -12,7 +12,7 @@ export interface Service {
 }
 
 export interface PortfolioItem {
-  id: string;
+  id: string | number;
   title: string;
   category: string;
   image: string;

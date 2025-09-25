@@ -53,7 +53,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ className = '' }
     <section id="contact" className={`py-20 bg-gradient-to-br from-gray-900 to-slate-800 text-white ${className}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
             <Phone className="h-8 w-8 text-amber-400 mr-3" />
             <Badge variant="secondary" className="bg-amber-600/20 text-amber-200 border-amber-400/30">
@@ -65,8 +65,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ className = '' }
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Contactez-nous dès aujourd&apos;hui pour un devis gratuit et personnalisé
-          </p>
-        </div>
+          </p> 
+        </div> */}
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}

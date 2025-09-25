@@ -1,7 +1,7 @@
 import { ApiResponse, ApiError } from '@/types';
 
 // Configuration de base pour l'API
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
 const API_TIMEOUT = 10000; // 10 secondes
 
 // Classe pour gérer les erreurs API
@@ -71,7 +71,12 @@ export class ApiClient {
       }
 
       const data = await response.json();
-      return data;
+      // Normaliser la réponse: si l'API ne renvoie pas un objet avec { data },
+      // envelopper la charge utile pour respecter ApiResponse<T>
+      if (data && typeof data === 'object' && 'data' in data) {
+        return data as ApiResponse<T>;
+      }
+      return { data, success: true } as ApiResponse<T>;
     } catch (error) {
       if (error instanceof ApiClientError) {
         throw error;

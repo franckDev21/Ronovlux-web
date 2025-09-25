@@ -41,9 +41,9 @@ export const usePortfolio = (
     try {
       setLoading(true);
       setError(null);
-      const response = await portfolioApi.getAll(options);
-      setPortfolio(response.items);
-      setPagination(response.pagination);
+      const items = await portfolioApi.getAll(options);
+      setPortfolio(items);
+      setPagination(null);
     } catch (err) {
       setError(handleApiError(err));
     } finally {

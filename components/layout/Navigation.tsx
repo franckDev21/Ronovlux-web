@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
 import { Crown, GraduationCap } from 'lucide-react';
 
 interface NavigationProps {
@@ -10,6 +9,7 @@ interface NavigationProps {
 
 export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,12 +20,40 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  useEffect(() => {
+    const sectionIds = ['accueil', 'services', 'realisations', 'contact'];
+
+    const updateFromHash = () => {
+      const hash = window.location.hash || '#accueil';
+      setActiveHash(hash);
+    };
+
+    updateFromHash();
+    window.addEventListener('hashchange', updateFromHash);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHash(`#${entry.target.id}`);
+          }
+        });
+      },
+      { root: null, rootMargin: '-50% 0px -50% 0px', threshold: 0 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener('hashchange', updateFromHash);
+      observer.disconnect();
+    };
+  }, []);
+
+  // Navigation via ancres href="#..." (pas de scroll programmatique)
 
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -43,57 +71,55 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
 
           {/* Navigation Links - Desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => scrollToSection('accueil')}
-              className="text-gray-700 hover:text-amber-600 transition-colors"
+            <a 
+              href="#accueil"
+              className={`text-gray-700 transition-colors hover:text-amber-600 bg-gradient-to-r from-amber-600 to-amber-600 bg-left-bottom bg-no-repeat ${activeHash === '#accueil' ? 'text-amber-700 bg-[length:100%_2px]' : 'bg-[length:0%_2px]'}`}
             >
               Accueil
-            </button>
-            <button 
-              onClick={() => scrollToSection('services')}
-              className="text-gray-700 hover:text-amber-600 transition-colors"
+            </a>
+            <a 
+              href="#services"
+              className={`text-gray-700 transition-colors hover:text-amber-600 bg-gradient-to-r from-amber-600 to-amber-600 bg-left-bottom bg-no-repeat ${activeHash === '#services' ? 'text-amber-700 bg-[length:100%_2px]' : 'bg-[length:0%_2px]'}`}
             >
               Services
-            </button>
-            <button 
-              onClick={() => scrollToSection('realisations')}
-              className="text-gray-700 hover:text-amber-600 transition-colors"
+            </a>
+            <a 
+              href="#realisations"
+              className={`text-gray-700 transition-colors hover:text-amber-600 bg-gradient-to-r from-amber-600 to-amber-600 bg-left-bottom bg-no-repeat ${activeHash === '#realisations' ? 'text-amber-700 bg-[length:100%_2px]' : 'bg-[length:0%_2px]'}`}
             >
               Réalisations
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-amber-600 transition-colors"
+            </a>
+            <a 
+              href="#contact"
+              className={`text-gray-700 transition-colors hover:text-amber-600 bg-gradient-to-r from-amber-600 to-amber-600 bg-left-bottom bg-no-repeat ${activeHash === '#contact' ? 'text-amber-700 bg-[length:100%_2px]' : 'bg-[length:0%_2px]'}`}
             >
               Contact
-            </button>
+            </a>
             <div className="flex items-center space-x-2">
-              <Button 
-                onClick={() => scrollToSection('contact')}
-                className="bg-amber-600 hover:bg-amber-700 text-white px-6"
+              <a 
+                href="#contact"
+                className="inline-flex items-center justify-center px-6 py-2 text-white bg-amber-600 hover:bg-amber-700 rounded-md shadow-sm transition-colors"
               >
                 Devis Gratuit
-              </Button>
-              <Button
-                onClick={() => scrollToSection('services')}
-                className="bg-gray-900 hover:bg-gray-800 text-white px-6 flex items-center gap-2"
+              </a>
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center px-6 py-2 text-white bg-gray-900 hover:bg-gray-800 rounded-md shadow-sm transition-colors gap-2"
               >
                 <GraduationCap className="h-4 w-4" />
                 Postuler pour une formation
-              </Button>
+              </a>
             </div>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button 
-              variant="outline" 
-              size="sm"
-              onClick={() => scrollToSection('contact')}
-              className="bg-amber-600 hover:bg-amber-700 text-white border-amber-600"
+            <a 
+              href="#contact"
+              className="inline-flex items-center justify-center px-4 py-2 text-white bg-amber-600 hover:bg-amber-700 rounded-md shadow-sm transition-colors"
             >
               Devis
-            </Button>
+            </a>
           </div>
         </div>
       </div>
