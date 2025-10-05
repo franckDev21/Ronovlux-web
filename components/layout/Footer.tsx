@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Crown } from 'lucide-react';
+import Image from 'next/image';
 
 interface FooterProps {
   className?: string;
@@ -56,8 +56,14 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
           {/* Company Info */}
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <Crown className="h-8 w-8 text-amber-500" />
-              <span className="text-xl font-bold">Renovlux Group</span>
+              <Image 
+                src="/assets/logo2.png" 
+                alt="Renovlux Group Logo" 
+                width={250}
+                height={232}
+                className="h-full"
+              />
+              {/* <span className="text-xl font-bold">Renovlux Group</span> */}
             </div>
             <p className="text-gray-400 leading-relaxed">
               Votre partenaire d&apos;exception pour la transformation de vos espaces avec les matériaux les plus nobles.

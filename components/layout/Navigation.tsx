@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Crown, GraduationCap } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
+import Image from 'next/image';
 
 interface NavigationProps {
   className?: string;
@@ -62,11 +63,17 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
         : 'bg-white/95 backdrop-blur-md border-b border-gray-200/20'
     } ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-[68px]">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <Crown className="h-8 w-8 text-amber-600" />
-            <span className="text-xl font-bold text-gray-900">Renovlux Group</span>
+            <Image 
+              src="/assets/logo.png" 
+              alt="Renovlux Group Logo" 
+              width={250}
+              height={232}
+              className="h-full"
+            />
+            {/* <span className="text-xl font-bold text-gray-900">Renovlux Group</span> */}
           </div>
 
           {/* Navigation Links - Desktop */}
