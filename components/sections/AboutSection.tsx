@@ -26,7 +26,7 @@ interface AboutData {
 
 const aboutData: AboutData = {
   title: "L'Excellence au Service de Votre Habitat",
-  description: "Depuis notre création, <strong>Ronovlux Group Sarl</strong> s&apos;est imposée comme la référence en matière de rénovation haut de gamme. Nous combinons savoir-faire traditionnel et technologies modernes pour créer des espaces d&apos;exception qui reflètent votre style de vie.",
+  description: "Depuis notre création, <strong>Renovlux Group Sarl</strong> s&apos;est imposée comme la référence en matière de rénovation haut de gamme. Nous combinons savoir-faire traditionnel et technologies modernes pour créer des espaces d&apos;exception qui reflètent votre style de vie.",
   stats: [
     { value: "500+", label: "Projets Réalisés" },
     { value: "15+", label: "Années d&apos;Expérience" }
@@ -97,7 +97,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="absolute inset-0 bg-gradient-to-tr from-amber-400/20 to-transparent rounded-2xl transform rotate-3"></div>
             <img 
               src={backgroundImage} 
-              alt="Réalisation Ronovlux" 
+              alt="Réalisation Renovlux" 
               className="rounded-2xl shadow-2xl relative z-10 w-full h-96 object-cover"
             />
           </div>

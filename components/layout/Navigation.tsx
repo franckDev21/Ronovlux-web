@@ -66,7 +66,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <Crown className="h-8 w-8 text-amber-600" />
-            <span className="text-xl font-bold text-gray-900">Ronovlux Group</span>
+            <span className="text-xl font-bold text-gray-900">Renovlux Group</span>
           </div>
 
           {/* Navigation Links - Desktop */}

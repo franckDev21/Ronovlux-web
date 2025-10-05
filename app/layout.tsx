@@ -6,12 +6,12 @@ import { AppProvider } from '@/context/AppContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Ronovlux Group - Excellence & Raffinement',
+  title: 'Renovlux Group - Excellence & Raffinement',
   description: 'Votre partenaire d&apos;exception pour la transformation de vos espaces avec granit, marbre, quartz, cuisines et salles de bains premium.',
   keywords: ['granit', 'marbre', 'quartz', 'cuisines', 'salles de bains', 'rénovation', 'premium', 'luxe'],
-  authors: [{ name: 'Ronovlux Group' }],
+  authors: [{ name: 'Renovlux Group' }],
   openGraph: {
-    title: 'Ronovlux Group - Excellence & Raffinement',
+    title: 'Renovlux Group - Excellence & Raffinement',
     description: 'Votre partenaire d&apos;exception pour la transformation de vos espaces',
     type: 'website',
     locale: 'fr_FR',

@@ -33,7 +33,7 @@ interface SocialMedia {
 const contactInfo: ContactInfo = {
   address: "123 Avenue de la Pierre, 75000 Paris",
   phone: "+33 1 23 45 67 89",
-  email: "contact@ronovluxgroup.com"
+  email: "contact@Renovluxgroup.com"
 };
 
 const socialMedia: SocialMedia[] = [

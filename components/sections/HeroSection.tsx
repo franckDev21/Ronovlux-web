@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Main Title */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-amber-200 bg-clip-text text-transparent">
-          Ronovlux Group
+          Renovlux Group
         </h1>
 
         {/* Subtitle */}
