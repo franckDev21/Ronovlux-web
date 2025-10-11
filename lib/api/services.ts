@@ -17,8 +17,11 @@ type RawProject = {
 export class ServicesApi {
   private endpoint = '/services';
 
-  async getAll(): Promise<Service[]> {
-    const response = await apiClient.get<Service[]>(this.endpoint);
+  async getAll(limit?: number): Promise<Service[]> {
+    const params: Record<string, string> = {};
+    if (limit) params.limit = limit.toString();
+    
+    const response = await apiClient.get<Service[]>(this.endpoint, params);
     return response.data;
   }
 

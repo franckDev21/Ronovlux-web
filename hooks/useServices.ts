@@ -58,7 +58,7 @@ export const useActiveServices = (): UseServicesReturn => {
     try {
       setLoading(true);
       setError(null);
-      const data = await servicesApi.getActive();
+      const data = await servicesApi.getAll(2);
       setServices(data);
     } catch (err) {
       setError(handleApiError(err));
