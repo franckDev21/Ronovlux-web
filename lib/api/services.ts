@@ -173,12 +173,24 @@ export const productsApi = new ProductsApi();
 export const contactApi = new ContactApi();
 
 // Fonction utilitaire pour formater les données des services (pour la compatibilité avec le code existant)
-export const formatServiceForDisplay = (service: Service) => ({
-  title: service.title,
-  description: service.description,
-  image: service.image,
-  features: service.features
-});
+export const formatServiceForDisplay = (service: Service) => {
+  // Protection contre les données null/undefined
+  if (!service) {
+    return {
+      title: 'Service non disponible',
+      description: 'Description non disponible',
+      image: '/placeholder-image.jpg',
+      features: []
+    };
+  }
+  
+  return {
+    title: service.title || 'Service sans titre',
+    description: service.description || 'Description non disponible',
+    image: service.image || '/placeholder-image.jpg',
+    features: Array.isArray(service.features) ? service.features : []
+  };
+};
 
 // Fonction utilitaire pour formater les données du portfolio (pour la compatibilité avec le code existant)
 export const formatPortfolioForDisplay = (item: PortfolioItem) => ({

@@ -28,9 +28,10 @@ export const useServices = (): UseServicesReturn => {
       setLoading(true);
       setError(null);
       const data = await servicesApi.getAll();
-      setServices(data);
+      setServices(data || []);
     } catch (err) {
       setError(handleApiError(err));
+      setServices([]); // S'assurer que services est un tableau vide en cas d'erreur
     } finally {
       setLoading(false);
     }
@@ -59,9 +60,10 @@ export const useActiveServices = (): UseServicesReturn => {
       setLoading(true);
       setError(null);
       const data = await servicesApi.getAll(2);
-      setServices(data);
+      setServices(data || []);
     } catch (err) {
       setError(handleApiError(err));
+      setServices([]); // S'assurer que services est un tableau vide en cas d'erreur
     } finally {
       setLoading(false);
     }

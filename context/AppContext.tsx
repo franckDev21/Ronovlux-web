@@ -165,8 +165,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const loadPortfolio = async () => {
     dispatch({ type: 'SET_PORTFOLIO_LOADING', payload: true });
     try {
-      const response = await portfolioApi.getAll();
-      dispatch({ type: 'SET_PORTFOLIO_SUCCESS', payload: response.items });
+      const portfolio = await portfolioApi.getAll();
+      dispatch({ type: 'SET_PORTFOLIO_SUCCESS', payload: portfolio });
     } catch (error) {
       dispatch({ type: 'SET_PORTFOLIO_ERROR', payload: handleApiError(error) });
     }
