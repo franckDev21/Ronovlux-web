@@ -1,6 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { AppProvider } from '@/context/AppContext';
+import { Navigation } from '@/components/layout/Navigation';
+import { SubHeader } from '@/components/layout/SubHeader';
 
 export const metadata: Metadata = {
   title: 'Renovlux Group - Excellence & Raffinement',
@@ -24,6 +26,10 @@ export default function RootLayout({
     <html lang="fr">
       <body className="font-[Inter]">
         <AppProvider>
+          <Navigation />
+          <SubHeader />
+          {/* Spacer global pour compenser les headers fixes (68px + 52px) */}
+          <div className="h-[120px]" />
           {children}
         </AppProvider>
       </body>

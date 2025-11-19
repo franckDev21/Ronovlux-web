@@ -1,7 +1,6 @@
 'use client';
 
 // Import des composants modulaires
-import { Navigation } from '@/components/layout/Navigation';
 import { HeroSection } from '@/components/sections/HeroSection';
 import { AboutSection } from '@/components/sections/AboutSection';
 import { ServicesSection } from '@/components/sections/ServicesSection';
@@ -12,7 +11,6 @@ import { Footer } from '@/components/layout/Footer';
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
-      <Navigation />
       <HeroSection />
       <AboutSection />
       <ServicesSection />
