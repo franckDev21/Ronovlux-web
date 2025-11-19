@@ -6,6 +6,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: { unoptimized: true },
+  trailingSlash: true, // recommandé pour export
 };
 
 module.exports = nextConfig;

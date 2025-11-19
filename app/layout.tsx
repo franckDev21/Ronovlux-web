@@ -1,9 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 import { AppProvider } from '@/context/AppContext';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Renovlux Group - Excellence & Raffinement',
@@ -25,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={inter.className}>
+      <body className="font-[Inter]">
         <AppProvider>
           {children}
         </AppProvider>

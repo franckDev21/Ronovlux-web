@@ -1,7 +1,7 @@
 import { ApiResponse, ApiError } from '@/types';
 
 // Configuration de base pour l'API
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://steve-api-app.renovlux-group.com/api';
 const API_TIMEOUT = 10000; // 10 secondes
 
 // Classe pour gérer les erreurs API
