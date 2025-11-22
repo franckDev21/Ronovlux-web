@@ -5,12 +5,12 @@ import { Navigation } from '@/components/layout/Navigation';
 import { SubHeader } from '@/components/layout/SubHeader';
 
 export const metadata: Metadata = {
-  title: 'Renovlux Group - Excellence & Raffinement',
+  title: 'Renovlux Groupe - Excellence & Raffinement',
   description: 'Votre partenaire d&apos;exception pour la transformation de vos espaces avec granit, marbre, quartz, cuisines et salles de bains premium.',
   keywords: ['granit', 'marbre', 'quartz', 'cuisines', 'salles de bains', 'rénovation', 'premium', 'luxe'],
-  authors: [{ name: 'Renovlux Group' }],
+  authors: [{ name: 'Renovlux Groupe' }],
   openGraph: {
-    title: 'Renovlux Group - Excellence & Raffinement',
+    title: 'Renovlux Groupe - Excellence & Raffinement',
     description: 'Votre partenaire d&apos;exception pour la transformation de vos espaces',
     type: 'website',
     locale: 'fr_FR',

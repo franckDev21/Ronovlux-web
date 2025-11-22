@@ -1,4 +1,4 @@
-# Architecture de l'Application Renovlux Group
+# Architecture de l'Application Renovlux Groupe
 
 ## Vue d'ensemble
 

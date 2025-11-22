@@ -4,11 +4,11 @@ import { Mail, ShieldCheck, Clock, BadgeCheck } from 'lucide-react';
 import { ContactForm } from '@/components/forms/ContactForm';
 
 export const metadata: Metadata = {
-  title: "Demande de Devis | Renovlux Group",
+  title: "Demande de Devis | Renovlux Groupe",
   description:
     "Obtenez un devis personnalisé pour votre projet (granit, marbre, quartz, cuisines, salles de bains). Réponse rapide et accompagnement premium.",
   openGraph: {
-    title: "Demande de Devis | Renovlux Group",
+    title: "Demande de Devis | Renovlux Groupe",
     description:
       "Obtenez un devis personnalisé pour votre projet. Réponse rapide et accompagnement premium.",
     type: 'website',

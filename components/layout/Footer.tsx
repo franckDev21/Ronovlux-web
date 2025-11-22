@@ -58,12 +58,12 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
             <div className="flex items-center space-x-3 mb-4">
               <Image 
                 src="/assets/logo2.png" 
-                alt="Renovlux Group Logo" 
+                alt="Renovlux Groupe Logo" 
                 width={250}
                 height={232}
                 className="h-full"
               />
-              {/* <span className="text-xl font-bold">Renovlux Group</span> */}
+              {/* <span className="text-xl font-bold">Renovlux Groupe</span> */}
             </div>
             <p className="text-gray-400 leading-relaxed">
               Votre partenaire d&apos;exception pour la transformation de vos espaces avec les matériaux les plus nobles.
@@ -105,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-center md:text-left">
-              &copy; {currentYear} Renovlux Group Sarl. Tous droits réservés.
+              &copy; {currentYear} Renovlux Groupe Sarl. Tous droits réservés.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <button 

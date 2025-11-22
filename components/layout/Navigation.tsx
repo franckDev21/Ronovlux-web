@@ -163,7 +163,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
             <div className="flex items-center space-x-3">
               <Image 
                 src="/assets/logo.png" 
-                alt="Renovlux Group Logo" 
+                alt="Renovlux Groupe Logo" 
                 width={200}
                 height={80}
                 // className="h-24 w-auto sm:h-14 md:h-12"
@@ -243,7 +243,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
           <div className="flex items-center justify-between mb-8 px-4">
             <Image 
               src="/assets/logo.png" 
-              alt="Renovlux Group Logo" 
+              alt="Renovlux Groupe Logo" 
               width={200}
               height={80}
               className="h-12 w-auto"
@@ -360,7 +360,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
           
           <div className="px-4 py-4 border-t border-gray-200 mt-auto">
             <div className="text-center text-sm text-gray-500">
-              © {new Date().getFullYear()} Renovlux Group. Tous droits réservés.
+              © {new Date().getFullYear()} Renovlux Groupe. Tous droits réservés.
             </div>
           </div>
         </div>
