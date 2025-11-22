@@ -40,7 +40,7 @@ export default function ShopPage() {
       name: `Produit d'exemple ${i + 1}`,
       description: 'Description de démonstration pour ce produit.',
       category: 'Démo',
-      images: ['/assets/image2.png'],
+      images: ['/assets/logo.png'],
       specifications: {},
       price: 199 + i * 10,
       availability: 'available',
@@ -111,7 +111,7 @@ export default function ShopPage() {
                 )}
               </p>
             </div>
-            <Link href="/" className="text-sm text-amber-700 hover:underline">Retour à l'accueil</Link>
+            <Link href="/" className="text-sm text-amber-700 hover:underline">Retour à l&apos;accueil</Link>
           </div>
 
           {/* Controls */}
@@ -172,7 +172,7 @@ export default function ShopPage() {
               ))}
             </div>
           )}
-          {error && <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}. Affichage d'exemples.</div>}
+          {error && <div className="mb-4 rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}. Affichage d&apos;exemples.</div>}
 
           {!loading && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

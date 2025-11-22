@@ -104,7 +104,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
             </a>
             <div className="flex items-center space-x-2">
               <a 
-                href="#contact"
+                href="/devis"
                 className="inline-flex items-center justify-center px-6 py-2 text-white bg-amber-600 hover:bg-amber-700 rounded-md shadow-sm transition-colors"
               >
                 Devis Gratuit
@@ -122,7 +122,7 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <a 
-              href="#contact"
+              href="/devis"
               className="inline-flex items-center justify-center px-4 py-2 text-white bg-amber-600 hover:bg-amber-700 rounded-md shadow-sm transition-colors"
             >
               Devis

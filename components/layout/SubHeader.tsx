@@ -31,12 +31,12 @@ export const SubHeader: React.FC = () => {
   const hasResults = useMemo(() => products && products.length > 0, [products]);
 
   return (
-    <div className="fixed top-[68px] z-40 w-full border-b border-gray-200/40 bg-white/80 backdrop-blur-md">
+    <div className="fixed top-[68px] z-40 w-full border-b border-amber-100/60 bg-amber-50/90 backdrop-blur-md shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-[52px] gap-3">
           {/* Search */}
           <div className="relative flex-1 max-w-xl">
-            <div className="flex items-center gap-2 rounded-md border border-gray-200 bg-white/90 px-3 py-2 shadow-sm focus-within:ring-2 focus-within:ring-amber-500/30">
+            <div className="flex items-center gap-2 rounded-md border border-amber-200 bg-white px-3 py-2 shadow-sm focus-within:ring-2 focus-within:ring-amber-500/30">
               <Search className="h-4 w-4 text-gray-500" />
               <input
                 value={query}

@@ -34,7 +34,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   };
 
   return (
-    <section id="accueil" className={`relative pb-30 pt-40 flex items-center justify-center overflow-hidden ${className}`}>
+    <section id="accueil" className={`relative pb-24 pt-32 flex items-center justify-center overflow-hidden ${className}`}>
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Main Title */}
         <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white to-amber-200 bg-clip-text text-transparent">
-          Renovlux Group
+          Renovlux Groupe
         </h1>
 
         {/* Subtitle */}
