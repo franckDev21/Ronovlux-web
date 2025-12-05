@@ -39,11 +39,24 @@ export const usePortfolio = (
 
   const fetchPortfolio = async () => {
     try {
+      console.log('Chargement du portfolio avec options:', options);
       setLoading(true);
       setError(null);
       const items = await portfolioApi.getAll(options);
+      console.log('Portfolio chargé:', items);
       setPortfolio(items);
-      setPagination(null);
+      
+      // Mettre à jour la pagination si disponible dans la réponse
+      if (options?.page && options?.limit) {
+        setPagination({
+          page: options.page,
+          limit: options.limit,
+          total: items.length, // Mettre à jour avec le total réel de l'API si disponible
+          totalPages: Math.ceil(items.length / (options.limit || 1)),
+        });
+      } else {
+        setPagination(null);
+      }
     } catch (err) {
       setError(handleApiError(err));
     } finally {
@@ -53,7 +66,7 @@ export const usePortfolio = (
 
   useEffect(() => {
     fetchPortfolio();
-  }, [options?.category, options?.search, options?.sortBy, options?.sortOrder, options?.page, options?.limit]);
+  }, [JSON.stringify(options)]); // Utiliser JSON.stringify pour détecter les changements dans l'objet options
 
   return {
     portfolio,
@@ -72,10 +85,20 @@ export const useFeaturedPortfolio = (limit: number = 6): UsePortfolioReturn => {
 
   const fetchFeaturedPortfolio = async () => {
     try {
+      console.log('Chargement des projets en vedette, limite:', limit);
       setLoading(true);
       setError(null);
       const data = await portfolioApi.getFeatured(limit);
+      console.log('Projets en vedette chargés:', data);
       setPortfolio(data);
+      
+      // Réinitialiser la pagination pour les projets en vedette
+      setPagination({
+        page: 1,
+        limit,
+        total: data.length,
+        totalPages: 1,
+      });
     } catch (err) {
       setError(handleApiError(err));
     } finally {

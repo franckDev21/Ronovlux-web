@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Service } from '@/types';
 import { servicesApi } from '@/lib/api/services';
 import { handleApiError } from '@/lib/api/client';
@@ -25,13 +25,18 @@ export const useServices = (): UseServicesReturn => {
 
   const fetchServices = async () => {
     try {
+      console.log('Chargement des services...');
       setLoading(true);
       setError(null);
       const data = await servicesApi.getAll();
+      console.log('Services chargés:', data);
       setServices(data || []);
     } catch (err) {
-      setError(handleApiError(err));
-      setServices([]); // S'assurer que services est un tableau vide en cas d'erreur
+      console.error('Erreur lors du chargement des services:', err);
+      const errorMessage = handleApiError(err);
+      console.error('Message d\'erreur:', errorMessage);
+      setError(errorMessage);
+      setServices([]);
     } finally {
       setLoading(false);
     }
@@ -50,28 +55,33 @@ export const useServices = (): UseServicesReturn => {
 };
 
 // Hook pour récupérer les services actifs
-export const useActiveServices = (): UseServicesReturn => {
+export const useActiveServices = (limit: number = 6): UseServicesReturn => {
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchActiveServices = async () => {
+  const fetchActiveServices = useCallback(async () => {
     try {
+      console.log('Chargement des services actifs...');
       setLoading(true);
       setError(null);
-      const data = await servicesApi.getAll(2);
+      const data = await servicesApi.getActive(limit);
+      console.log('Services actifs chargés:', data);
       setServices(data || []);
     } catch (err) {
-      setError(handleApiError(err));
-      setServices([]); // S'assurer que services est un tableau vide en cas d'erreur
+      console.error('Erreur lors du chargement des services actifs:', err);
+      const errorMessage = handleApiError(err);
+      console.error('Message d\'erreur:', errorMessage);
+      setError(errorMessage);
+      setServices([]);
     } finally {
       setLoading(false);
     }
-  };
+  }, [limit]);
 
   useEffect(() => {
     fetchActiveServices();
-  }, []);
+  }, [fetchActiveServices]);
 
   return {
     services,

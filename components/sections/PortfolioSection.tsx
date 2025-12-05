@@ -19,15 +19,19 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({
   className = '',
   limit = 6 
 }) => {
+  console.log('Rendu de PortfolioSection avec limite:', limit);
   const { portfolio, loading, error, refetch } = useFeaturedPortfolio(limit);
+  
+  console.log('État du portfolio:', { loading, error, count: portfolio?.length });
+  console.log('Données du portfolio:', portfolio);
 
   if (loading) {
     return <LoadingState type="grid" count={limit} className={className} />;
   }
 
-  if (error) {
-    return <ErrorState message={error} onRetry={refetch} className={className} />;
-  }
+  // if (error) {
+  //   return <ErrorState message={error} onRetry={refetch} className={className} />;
+  // }
 
   if (!portfolio.length) {
     return (
