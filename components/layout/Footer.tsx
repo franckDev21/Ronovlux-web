@@ -31,10 +31,12 @@ const footerSections: FooterSection[] = [
   {
     title: "Contact",
     links: [
-      { label: "+33 1 23 45 67 89" },
-      { label: "contact@Renovluxgroup.com" },
-      { label: "123 Avenue de la Pierre" },
-      { label: "75000 Paris, France" }
+
+
+      { label: "+237 671 055 052" },
+      { label: "Renovluxcameroun@gmail.com" },
+      { label: "Douala, Cameroun" },
+      { label: "Logpong, Rue École Primaire Papyrus " }
     ]
   }
 ];
@@ -44,7 +46,26 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    }
+    }const footerSections: FooterSection[] = [
+  {
+    title: "Services",
+    links: [
+      { label: "Granit & Marbre" },
+      { label: "Quartz Premium" },
+      { label: "Cuisines Modernes" },
+      { label: "Salles de Bains" }
+    ]
+  },
+  {
+    title: "Contact",
+    links: [
+      { label: "+237 671 055 052" },
+      { label: "Renovluxcameroun@gmail.com" },
+      { label: "Douala, Cameroun" },
+      { label: "Logpong, Rue École Primaire Papyrus " }
+    ]
+  }
+];
   };
 
   const currentYear = new Date().getFullYear();
@@ -141,3 +162,4 @@ export const Footer: React.FC<FooterProps> = ({ className = '' }) => {
 };
 
 export default Footer;
+

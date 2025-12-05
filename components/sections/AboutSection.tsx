@@ -39,7 +39,7 @@ const aboutData: AboutData = {
 
 export const AboutSection: React.FC<AboutSectionProps> = ({ 
   className = '',
-  backgroundImage = "https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg"
+  backgroundImage = "/assets/bg2.jpeg"
 }) => {
   return (
     <section className={`py-20 bg-white ${className}`}>
@@ -108,3 +108,4 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 };
 
 export default AboutSection;
+

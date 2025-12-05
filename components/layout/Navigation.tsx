@@ -161,14 +161,16 @@ export const Navigation: React.FC<NavigationProps> = ({ className = '' }) => {
           <div className="flex justify-between items-center h-[68px]">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <Image 
-                src="/assets/logo.png" 
-                alt="Renovlux Groupe Logo" 
-                width={200}
-                height={80}
-                // className="h-24 w-auto sm:h-14 md:h-12"
-                priority
-              />
+              <Link href='/'>
+                <Image 
+                  src="/assets/logo.png" 
+                  alt="Renovlux Groupe Logo" 
+                  width={200}
+                  height={80}
+                  // className="h-24 w-auto sm:h-14 md:h-12"
+                  priority
+                />
+              </Link>
             </div>
 
             {/* Navigation Links - Desktop */}

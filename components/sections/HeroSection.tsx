@@ -18,7 +18,7 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ 
   className = '',
-  backgroundImage = "https://images.pexels.com/photos/6585597/pexels-photo-6585597.jpeg"
+  backgroundImage = "/assets/bg1.jpeg"
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -31,6 +31,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const openWhatsApp = () => {
+    const phoneNumber = "+237671055052"; // Numéro sans espaces pour l'URL
+    const message = encodeURIComponent(
+      "Bonjour Renovlux Groupe ! 👋\n\n" +
+      "J'aimerais en savoir plus sur vos services et produits (granit, marbre, quartz, cuisines, salles de bains).\n" +
+      "Je viens de visiter votre site internet et je suis intéressé(e) par vos prestations.\n\n" +
+      "Pourriez-vous me fournir plus d'informations ?\n" +
+      "Merci !"
+    );
+    
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -81,10 +95,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <Button 
             size="lg" 
             variant="outline" 
+            onClick={openWhatsApp}
             className="border-2 border-white text-amber-700 hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-medium backdrop-blur-sm"
           >
             <Phone className="mr-2 h-5 w-5" />
-            Nous Appeler
+            Nous Contacter sur WhatsApp
           </Button>
         </div>
 

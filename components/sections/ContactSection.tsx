@@ -31,8 +31,8 @@ interface SocialMedia {
 }
 
 const contactInfo: ContactInfo = {
-  address: "123 Avenue de la Pierre, 75000 Paris",
-  phone: "+33 1 23 45 67 89",
+  address: "Douala Cameroun | Logpong, Rue École Primaire Papyrus",
+  phone: "+237 671 055 052",
   email: "contact@Renovluxgroup.com"
 };
 
