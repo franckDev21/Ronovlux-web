@@ -113,8 +113,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '', isDark
   }
 
   return (
-    <Card className={`${isDarkMode ? 'bg-white/5 border-gray-700' : 'bg-white border-gray-200'} backdrop-blur-sm ${className}`}>
-      <CardContent className={`p-8 ${!isDarkMode ? 'text-gray-900' : 'text-white'}`}>
+    <Card className={`${isDarkMode ? 'bg-white/5 border-gray-700' : 'bg-white border-gray-200'} backdrop-blur-sm w-full ${className}`}>
+      <CardContent className={`p-4 sm:p-6 md:p-8 ${!isDarkMode ? 'text-gray-900' : 'text-white'}`}>
         <h3 className="text-2xl font-bold mb-6">Demande de Devis</h3>
         
         {submitError && (
@@ -124,8 +124,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ className = '', isDark
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid md:grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="space-y-4 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Input 
               placeholder="Prénom *" 
               value={formData.firstName}

@@ -50,8 +50,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ className = '' }
   };
 
   return (
-    <section id="contact" className={`py-20 bg-gradient-to-br from-gray-900 to-slate-800 text-white ${className}`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className={`py-10 md:py-20 bg-gradient-to-br from-gray-900 to-slate-800 text-white ${className} overflow-x-hidden`}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Header */}
         {/* <div className="text-center mb-16">
           <div className="flex items-center justify-center mb-6">
@@ -68,12 +68,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ className = '' }
           </p> 
         </div> */}
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 w-full">
           {/* Contact Form */}
-          <ContactForm />
+          <div className="w-full overflow-hidden">
+            <ContactForm className="w-full max-w-full" />
+          </div>
 
           {/* Contact Info & Map */}
-          <div className="space-y-8">
+          <div className="space-y-6 md:space-y-8 w-full">
             {/* Contact Information */}
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">Nos Coordonnées</h3>
