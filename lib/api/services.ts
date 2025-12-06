@@ -1,7 +1,7 @@
 import { apiClient } from './client';
 
 // Base URL de l'API (configurée via l'environnement)
-export const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://steve-api-app.renovlux-group.com/api';
 import { Service, PortfolioItem, Product, ContactFormData, ApiResponse, FilterOptions, PaginationOptions } from '@/types';
 // Format brut renvoyé par l'API /projects
 type RawProject = {
@@ -180,23 +180,29 @@ export class PortfolioApi {
       const rawItems = response.data;
       
       // Mapper les données brutes vers le format attendu
-      const portfolioItems = rawItems.map((item) => ({
-        id: item.id.toString(),
-        title: item.title || 'Projet sans titre',
-        category: item.category?.name || 'Non catégorisé',
-        image: item.image || '/placeholder-image.jpg',
-        description: item.description || '',
-        images: [item.image || '/placeholder-image.jpg', ...(Array.isArray(item.secondary_images) ? item.secondary_images : [])],
-        tags: item.tags || [],
-        year: item.year || new Date(item.created_at || new Date()).getFullYear(),
-        createdAt: item.created_at || new Date().toISOString(),
-        updatedAt: item.updated_at || item.created_at || new Date().toISOString(),
-        // Optional properties that might be in the raw data but not in PortfolioItem
-        ...(item.uuid && { uuid: item.uuid }),
-        ...(item.slug && { slug: item.slug }),
-        ...(item.category_id && { categoryId: item.category_id.toString() }),
-        ...(item.secondary_images && { secondaryImages: item.secondary_images })
-      } as PortfolioItem));
+      const portfolioItems = rawItems.map((item) => {
+        // Ensure all required PortfolioItem fields are present
+        const portfolioItem: PortfolioItem = {
+          id: item.id?.toString() || '',
+          title: item.title || 'Projet sans titre',
+          category: item.category?.name || 'Non catégorisé',
+          image: item.image || '/placeholder-image.jpg',
+          description: item.description || '',
+          images: [item.image || '/placeholder-image.jpg', ...(Array.isArray(item.secondary_images) ? item.secondary_images : [])],
+          tags: item.tags || [],
+          year: item.year || new Date(item.created_at || new Date()).getFullYear(),
+          createdAt: item.created_at || new Date().toISOString(),
+          updatedAt: item.updated_at || item.created_at || new Date().toISOString()
+        };
+
+        // Add optional properties if they exist
+        if (item.uuid) (portfolioItem as any).uuid = item.uuid;
+        if (item.slug) (portfolioItem as any).slug = item.slug;
+        if (item.category_id) (portfolioItem as any).categoryId = item.category_id.toString();
+        if (item.secondary_images) (portfolioItem as any).secondaryImages = item.secondary_images;
+
+        return portfolioItem;
+      });
       
       console.log('Projets mappés:', portfolioItems);
       return portfolioItems;
@@ -254,23 +260,29 @@ export class PortfolioApi {
       const rawItems = response.data.slice(0, limit);
       
       // Mapper les données brutes vers le format attendu
-      const featuredItems = rawItems.map((item) => ({
-        id: item.id.toString(),
-        title: item.title || 'Projet sans titre',
-        category: item.category?.name || 'Non catégorisé',
-        image: item.image || '/placeholder-image.jpg',
-        description: item.description || '',
-        images: [item.image || '/placeholder-image.jpg', ...(Array.isArray(item.secondary_images) ? item.secondary_images : [])],
-        tags: item.tags || [],
-        year: item.year || new Date(item.created_at || new Date()).getFullYear(),
-        createdAt: item.created_at || new Date().toISOString(),
-        updatedAt: item.updated_at || item.created_at || new Date().toISOString(),
-        // Optional properties that might be in the raw data but not in PortfolioItem
-        ...(item.uuid && { uuid: item.uuid }),
-        ...(item.slug && { slug: item.slug }),
-        ...(item.category_id && { categoryId: item.category_id.toString() }),
-        ...(item.secondary_images && { secondaryImages: item.secondary_images })
-      }));
+      const featuredItems = rawItems.map((item) => {
+        // Ensure all required PortfolioItem fields are present
+        const portfolioItem: PortfolioItem = {
+          id: item.id?.toString() || '',
+          title: item.title || 'Projet sans titre',
+          category: item.category?.name || 'Non catégorisé',
+          image: item.image || '/placeholder-image.jpg',
+          description: item.description || '',
+          images: [item.image || '/placeholder-image.jpg', ...(Array.isArray(item.secondary_images) ? item.secondary_images : [])],
+          tags: item.tags || [],
+          year: item.year || new Date(item.created_at || new Date()).getFullYear(),
+          createdAt: item.created_at || new Date().toISOString(),
+          updatedAt: item.updated_at || item.created_at || new Date().toISOString()
+        };
+
+        // Add optional properties if they exist
+        if (item.uuid) (portfolioItem as any).uuid = item.uuid;
+        if (item.slug) (portfolioItem as any).slug = item.slug;
+        if (item.category_id) (portfolioItem as any).categoryId = item.category_id.toString();
+        if (item.secondary_images) (portfolioItem as any).secondaryImages = item.secondary_images;
+
+        return portfolioItem;
+      });
       
       console.log('Projets en vedette mappés:', featuredItems);
       return featuredItems;
