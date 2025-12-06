@@ -182,17 +182,21 @@ export class PortfolioApi {
       // Mapper les données brutes vers le format attendu
       const portfolioItems = rawItems.map((item) => ({
         id: item.id.toString(),
-        uuid: item.uuid || '',
         title: item.title || 'Projet sans titre',
-        slug: item.title ? item.title.toLowerCase().replace(/\s+/g, '-') : '',
-        description: item.description || '',
-        image: item.image || '/placeholder-image.jpg',
         category: item.category?.name || 'Non catégorisé',
-        categoryId: item.category_id?.toString() || '',
+        image: item.image || '/placeholder-image.jpg',
+        description: item.description || '',
+        images: [item.image || '/placeholder-image.jpg', ...(Array.isArray(item.secondary_images) ? item.secondary_images : [])],
+        tags: item.tags || [],
+        year: item.year || new Date(item.created_at || new Date()).getFullYear(),
         createdAt: item.created_at || new Date().toISOString(),
-        updatedAt: item.created_at || new Date().toISOString(),
-        secondaryImages: Array.isArray(item.secondary_images) ? item.secondary_images : [],
-      }));
+        updatedAt: item.updated_at || item.created_at || new Date().toISOString(),
+        // Optional properties that might be in the raw data but not in PortfolioItem
+        ...(item.uuid && { uuid: item.uuid }),
+        ...(item.slug && { slug: item.slug }),
+        ...(item.category_id && { categoryId: item.category_id.toString() }),
+        ...(item.secondary_images && { secondaryImages: item.secondary_images })
+      } as PortfolioItem));
       
       console.log('Projets mappés:', portfolioItems);
       return portfolioItems;
@@ -252,16 +256,20 @@ export class PortfolioApi {
       // Mapper les données brutes vers le format attendu
       const featuredItems = rawItems.map((item) => ({
         id: item.id.toString(),
-        uuid: item.uuid || '',
         title: item.title || 'Projet sans titre',
-        slug: item.title ? item.title.toLowerCase().replace(/\s+/g, '-') : '',
-        description: item.description || '',
-        image: item.image || '/placeholder-image.jpg',
         category: item.category?.name || 'Non catégorisé',
-        categoryId: item.category_id?.toString() || '',
+        image: item.image || '/placeholder-image.jpg',
+        description: item.description || '',
+        images: [item.image || '/placeholder-image.jpg', ...(Array.isArray(item.secondary_images) ? item.secondary_images : [])],
+        tags: item.tags || [],
+        year: item.year || new Date(item.created_at || new Date()).getFullYear(),
         createdAt: item.created_at || new Date().toISOString(),
-        updatedAt: item.created_at || new Date().toISOString(),
-        secondaryImages: Array.isArray(item.secondary_images) ? item.secondary_images : [],
+        updatedAt: item.updated_at || item.created_at || new Date().toISOString(),
+        // Optional properties that might be in the raw data but not in PortfolioItem
+        ...(item.uuid && { uuid: item.uuid }),
+        ...(item.slug && { slug: item.slug }),
+        ...(item.category_id && { categoryId: item.category_id.toString() }),
+        ...(item.secondary_images && { secondaryImages: item.secondary_images })
       }));
       
       console.log('Projets en vedette mappés:', featuredItems);

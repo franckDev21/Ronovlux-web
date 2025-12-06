@@ -82,6 +82,12 @@ export const useFeaturedPortfolio = (limit: number = 6): UsePortfolioReturn => {
   const [portfolio, setPortfolio] = useState<PortfolioItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [pagination, setPagination] = useState<{
+    page: number;
+    limit: number;
+    total: number;
+    totalPages: number;
+  } | null>(null);
 
   const fetchFeaturedPortfolio = async () => {
     try {
